@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Effect01-jquery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="mouse bg">
+
+    <!-- main -->
+    <main id="mouseCont">
+        <div class="cursor"></div>
+
+        <div class="mouseCont">
+            <p>To climb <span class="style1">steep</span> hills requires <span class="style2">slow</span> pace at <span class="style3">first.</span></p>
+            <p><span class="style4">험준한</span> 산을 <span class="style5">오르기</span> 위해선 먼저 <span class="style6">천천히</span> 걸어야 한다.</p>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <!-- info -->
+    <div class="info">
+        <h1><a href="index.html">Mouse Effect01 - jQuery</a></h1>
+        <p>마우스 이펙트 - 따라다니기</p>
+    </div>
+
+    <div class="info right">
+        <ul>
+            <li><a href="index.html">1</a></li>
+            <li><a href="mouseEffect02-javascript.html">2</a></li>
+            <li><a href="mouseEffect03-javascript.html">3</a></li>
+            <li><a href="mouseEffect04-javascript.html">4</a></li>
+            <li><a href="mouseEffect05-javascript.html">5</a></li>
+            <li><a href="mouseEffect06-javascript.html">6</a></li>
+        </ul>
+        <ul>
+            <li class="active"><a href="mouseEffect01-jquery.html">1</a></li>
+            <li><a href="mouseEffect02-jquery.html">2</a></li>
+            <li><a href="mouseEffect03-jquery.html">3</a></li>
+            <li><a href="mouseEffect04-jquery.html">4</a></li>
+            <li><a href="mouseEffect05-jquery.html">5</a></li>
+            <li><a href="mouseEffect06-jquery.html">6</a></li>
+        </ul>
+    </div>
+
+    <div class="info left">
+        <ul>
+            <li>clientX : <span class="clientX">0</span>px</li>
+            <li>clientY : <span class="clientY">0</span>px</li>
+            <li>offsetX : <span class="offsetX">0</span>px</li>
+            <li>offsetY : <span class="offsetY">0</span>px</li>
+            <li>pageX : <span class="pageX">0</span>px</li>
+            <li>pageY : <span class="pageY">0</span>px</li>
+            <li>screenX : <span class="screenX">0</span>px</li>
+            <li>screenY : <span class="screenY">0</span>px</li>
+        </ul>
+    </div>
+    <!-- //info -->
+
+    <!-- script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    //출력용
+    $(window).mousemove(function(event){
+        $(".clientX").text(event.clientX);  //브라우저 X좌표
+        $(".clientY").text(event.clientY);  //브라우저 Y좌표
+        $(".offsetX").text(event.offsetX);  //요소 X좌표
+        $(".offsetY").text(event.offsetY);  //요소 Y좌표
+        $(".pageX").text(event.pageX);      //페이지 X좌표
+        $(".pageY").text(event.pageX);      //페이지 X좌표
+        $(".screenX").text(event.screenX);  //디바이스 X좌표
+        $(".screenY").text(event.screenY);  //디바이스 Y좌표
+    });
+
+    //마우스 움직이기
+    $(window).mousemove(function(e){
+        // $(".cursor").css("left", "100px");
+        // $(".cursor").css("top", "100px");
+        //$(".cursor").css({"left":"100px", "top":"100px"});
+        //$(".cursor").css({ left:"100px", top:"100px"});
+        //$(".cursor").css({ left: 100, top: 100});
+
+        $(".cursor").css({ left: e.clientX - 25, top: e.clientY - 25 });
+    });
+
+    //마우스 오버효과
+    // $(".mouseCont .style1").hover(function(){
+    //     $(".cursor").addClass("style1");
+    // }, function(){
+    //     $(".cursor").removeClass("style1");
+    // });
+    // $(".mouseCont .style2").hover(function(){
+    //     $(".cursor").addClass("style2");
+    // }, function(){
+    //     $(".cursor").removeClass("style2");
+    // });
+    // $(".mouseCont .style3").hover(function(){
+    //     $(".cursor").addClass("style3");
+    // }, function(){
+    //     $(".cursor").removeClass("style3");
+    // });
+    // $(".mouseCont .style4").hover(function(){
+    //     $(".cursor").addClass("style4");
+    // }, function(){
+    //     $(".cursor").removeClass("style4");
+    // });
+    // $(".mouseCont .style5").hover(function(){
+    //     $(".cursor").addClass("style5");
+    // }, function(){
+    //     $(".cursor").removeClass("style5");
+    // });
+    // $(".mouseCont .style6").hover(function(){
+    //     $(".cursor").addClass("style6");
+    // }, function(){
+    //     $(".cursor").removeClass("style6");
+    // });
+
+    // for문
+    // for ( let i=1; i<=6; i++ ){
+    //     $(".mouseCont .style" + i).hover(function(){
+    //         $(".cursor").addClass("style" + i);
+    //     }, function(){
+    //         $(".cursor").removeClass("style" + i);
+    //     });
+    // }
+
+    // each()
+    // $(".mouseCont span").each(function(index, element){
+    //     $(element).hover(function(){
+    //         $(".cursor").addClass("style" + (index+1));
+    //     }, function(){
+    //         $(".cursor").removeClass("style" + (index+1));
+    //     });
+    // });
+
+    // attr()
+    $(".mouseCont span").hover(function(){
+        $(".cursor").addClass($(this).attr("class"));
+    }, function(){
+        $(".cursor").removeClass($(this).attr("class"));
+    });
+</script>
+</body>
+</html>

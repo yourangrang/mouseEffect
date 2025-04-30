@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Effect01-javascript</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="mouse bg">
+
+    <!-- main -->
+    <main id="mouseCont">
+        <div class="cursor"></div>
+
+        <div class="mouseCont">
+            <p>To climb <span class="style1">steep</span> hills requires <span class="style2">slow</span> pace at <span class="style3">first.</span></p>
+            <p><span class="style4">험준한</span> 산을 <span class="style5">오르기</span> 위해선 먼저 <span class="style6">천천히</span> 걸어야 한다.</p>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <!-- info -->
+    <div class="info">
+        <h1><a href="index.html">Mouse Effect01 - Javascript</a></h1>
+        <p>마우스 이펙트 - 따라다니기</p>
+    </div>
+
+    <div class="info right">
+        <ul>
+            <li class="active"><a href="index.html">1</a></li>
+            <li><a href="mouseEffect02-javascript.html">2</a></li>
+            <li><a href="mouseEffect03-javascript.html">3</a></li>
+            <li><a href="mouseEffect04-javascript.html">4</a></li>
+            <li><a href="mouseEffect05-javascript.html">5</a></li>
+            <li><a href="mouseEffect06-javascript.html">6</a></li>
+        </ul>
+        <ul>
+            <li><a href="mouseEffect01-jquery.html">1</a></li>
+            <li><a href="mouseEffect02-jquery.html">2</a></li>
+            <li><a href="mouseEffect03-jquery.html">3</a></li>
+            <li><a href="mouseEffect04-jquery.html">4</a></li>
+            <li><a href="mouseEffect05-jquery.html">5</a></li>
+            <li><a href="mouseEffect06-jquery.html">6</a></li>
+        </ul>
+    </div>
+
+    <div class="info left">
+        <ul>
+            <li>clientX : <span class="clientX">0</span>px</li>
+            <li>clientY : <span class="clientY">0</span>px</li>
+            <li>offsetX : <span class="offsetX">0</span>px</li>
+            <li>offsetY : <span class="offsetY">0</span>px</li>
+            <li>pageX : <span class="pageX">0</span>px</li>
+            <li>pageY : <span class="pageY">0</span>px</li>
+            <li>screenX : <span class="screenX">0</span>px</li>
+            <li>screenY : <span class="screenY">0</span>px</li>
+        </ul>
+    </div>
+    <!-- //info -->
+
+    <!-- script -->
+    <script>
+        //출력용
+    window.addEventListener("mousemove", function(event){
+        document.querySelector(".clientX").innerText = event.clientX;
+        document.querySelector(".clientY").innerText = event.clientY;
+        document.querySelector(".offsetX").innerText = event.offsetX;
+        document.querySelector(".offsetY").innerText = event.offsetY;
+        document.querySelector(".pageX").innerText = event.pageX;
+        document.querySelector(".pageY").innerText = event.pageY;
+        document.querySelector(".screenX").innerText = event.screenX;
+        document.querySelector(".screenY").innerText = event.screenY;
+    });
+
+    //마우스 움직이기
+    window.addEventListener("mousemove", function(e){
+        // document.querySelector(".cursor").style.left = e.clientX -25 + "px";
+        // document.querySelector(".cursor").style.top = e.clientY -25 + "px";
+
+        let x = e.clientX -25 + "px";
+        let y = e.clientY -25 + "px";
+        document.querySelector(".cursor").style.cssText = "left:" + x + "; top:" + y; 
+    });
+
+    // document.querySelector(".mouseCont .style1").addEventListener("mouseover", function(){
+    //     document.querySelector(".cursor").classList.add("style1");
+    // });
+    // document.querySelector(".mouseCont .style1").addEventListener("mouseout", function(){
+    //     document.querySelector(".cursor").classList.remove("style1");
+    // });
+    // document.querySelector(".mouseCont .style2").addEventListener("mouseover", function(){
+    //     document.querySelector(".cursor").classList.add("style2");
+    // });
+    // document.querySelector(".mouseCont .style2").addEventListener("mouseout", function(){
+    //     document.querySelector(".cursor").classList.remove("style2");
+    // });
+    // document.querySelector(".mouseCont .style3").addEventListener("mouseover", function(){
+    //     document.querySelector(".cursor").classList.add("style3");
+    // });
+    // document.querySelector(".mouseCont .style3").addEventListener("mouseout", function(){
+    //     document.querySelector(".cursor").classList.remove("style3");
+    // });
+    // document.querySelector(".mouseCont .style4").addEventListener("mouseover", function(){
+    //     document.querySelector(".cursor").classList.add("style4");
+    // });
+    // document.querySelector(".mouseCont .style4").addEventListener("mouseout", function(){
+    //     document.querySelector(".cursor").classList.remove("style4");
+    // });
+    // document.querySelector(".mouseCont .style5").addEventListener("mouseover", function(){
+    //     document.querySelector(".cursor").classList.add("style5");
+    // });
+    // document.querySelector(".mouseCont .style5").addEventListener("mouseout", function(){
+    //     document.querySelector(".cursor").classList.remove("style5");
+    // });
+    // document.querySelector(".mouseCont .style6").addEventListener("mouseover", function(){
+    //     document.querySelector(".cursor").classList.add("style6");
+    // });
+    // document.querySelector(".mouseCont .style6").addEventListener("mouseout", function(){
+    //     document.querySelector(".cursor").classList.remove("style6");
+    // });
+
+    // for()
+    // for( let i=1; i<=6; i++ ){
+    //     document.querySelector(".mouseCont .style"+i).addEventListener("mouseover", function(){
+    //         document.querySelector(".cursor").classList.add("style"+i);
+    //     });
+    //     document.querySelector(".mouseCont .style"+i).addEventListener("mouseout", function(){
+    //         document.querySelector(".cursor").classList.remove("style"+i);
+    //     });
+    // }
+
+    // forEach()
+    // document.querySelectorAll(".mouseCont span").forEach((element, index) => {
+    //     element.addEventListener("mouseover", () => {
+    //         document.querySelector(".cursor").classList.add("style"+(index+1));
+    //     });
+    //     element.addEventListener("mouseout", function(){
+    //         document.querySelector(".cursor").classList.remove("style"+(index+1));
+    //     });
+    // })
+
+    // getAttribute()
+    document.querySelectorAll(".mouseCont span").forEach(element => {
+        let style = element.getAttribute("class");
+
+        element.addEventListener("mouseover", () => {
+            document.querySelector(".cursor").classList.add(style);
+        })
+        element.addEventListener("mouseout", () => {
+            document.querySelector(".cursor").classList.remove(style);
+        })
+    })
+    </script>
+</body>
+</html>
